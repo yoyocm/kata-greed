@@ -1,0 +1,9 @@
+# language to parse
+language: python
+
+# Python versions to test
+python:
+  - "3.6"
+
+# Unit tests to run
+script: ./run_tests.sh
