@@ -44,13 +44,6 @@ class Greed():
     def _is_triple_with_value(self, dice_value: int):
         return self.values[str(dice_value)] == 3
 
-    def _is_triple_with_value(self, dice_value: int):
-        for i in range(self.min_dice_value, self.max_dice_value + 1):
-            if self.values[str(i)] == 3:
-                return True
-
-        return False
-
     def _is_a_kind(self, number_of_values: int):
         for i in range(self.min_dice_value, self.max_dice_value + 1):
             if self.values[str(i)] == number_of_values:
@@ -109,11 +102,11 @@ class Greed():
                 self.score_value += 100 * i
 
         # Check if there is a single five
-        if self._is_single_five:
+        if self._is_single_five():
             self.score_value += 50
 
         # Check if there is a single one
-        if self._is_single_one:
-            self.score_value += 10
+        if self._is_single_one():
+            self.score_value += 100
 
         return self.score_value
